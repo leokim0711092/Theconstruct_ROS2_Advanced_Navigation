@@ -20,6 +20,7 @@ setup(
         (os.path.join('share', package_name, 'config/my_custom_crazy_costmap'), glob('config/my_custom_crazy_costmap/*.yaml')),
         (os.path.join('share', package_name, 'config/straightline_planner'), glob('config/straightline_planner/*.yaml')),
         (os.path.join('share', package_name, 'config/wavyline_planner'), glob('config/wavyline_planner/*.yaml')),
+        (os.path.join('share', package_name, 'config/pure_pursuit_controller'), glob('config/pure_pursuit_controller/*.yaml')),
 
     ],
     install_requires=['setuptools'],
