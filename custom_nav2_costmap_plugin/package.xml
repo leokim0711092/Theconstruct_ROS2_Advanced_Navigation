@@ -18,6 +18,7 @@
 
   <export>
     <costmap_2d plugin="${prefix}/gradient_layer.xml" />
+    <costmap_2d plugin="${prefix}/my_custom_costmap_plugininfo.xml" />    
     <build_type>ament_cmake</build_type>
   </export>
 </package>

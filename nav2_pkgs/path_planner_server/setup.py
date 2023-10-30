@@ -17,6 +17,7 @@ setup(
         (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
         (os.path.join('share', package_name, 'rviz_config'), glob('rviz_config/*')),
         (os.path.join('share', package_name, 'config/custom_costmap'), glob('config/custom_costmap/*.yaml')),
+        (os.path.join('share', package_name, 'config/my_custom_crazy_costmap'), glob('config/my_custom_crazy_costmap/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

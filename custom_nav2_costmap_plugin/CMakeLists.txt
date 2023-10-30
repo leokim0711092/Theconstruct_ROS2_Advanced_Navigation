@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 project(custom_nav2_costmap_plugin)
 
 set(lib_name ${PROJECT_NAME}_core)
+set(my_custom_costmap_lib_name my_custom_costmap_core)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -34,6 +35,8 @@ endif()
 add_library(${lib_name} SHARED
             src/gradient_layer.cpp)
 
+add_library(${my_custom_costmap_lib_name} SHARED
+            src/my_custom_costmap.cpp)
 
 include_directories(include)
 
@@ -42,8 +45,14 @@ include_directories(include)
 install(TARGETS ${lib_name}
         DESTINATION lib)
 
+install(TARGETS ${my_custom_costmap_lib_name}
+        DESTINATION lib)
+
 pluginlib_export_plugin_description_file(nav2_costmap_2d gradient_layer.xml)
 ament_target_dependencies(${lib_name} ${dep_pkgs})
+
+pluginlib_export_plugin_description_file(nav2_costmap_2d my_custom_costmap_plugininfo.xml)
+ament_target_dependencies(${my_custom_costmap_lib_name} ${dep_pkgs})
 
 
 ament_package()
